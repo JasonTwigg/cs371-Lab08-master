@@ -84,6 +84,8 @@ public class SoccerDatabase implements SoccerDB {
         if( players.containsKey( hashKey )){
             SoccerPlayer sp = players.get(hashKey);
             sp.bumpGoals();
+
+            return true;
         }
 
         return false;
@@ -101,7 +103,9 @@ public class SoccerDatabase implements SoccerDB {
 
         if( players.containsKey( hashKey )){
             SoccerPlayer sp = players.get(hashKey);
-            sp.bumpGoals();
+            sp.bumpAssists();
+
+            return true;
         }
 
         return false;
@@ -120,7 +124,9 @@ public class SoccerDatabase implements SoccerDB {
 
         if( players.containsKey( hashKey )){
             SoccerPlayer sp = players.get(hashKey);
-            sp.bumpGoals();
+            sp.bumpShots();
+
+            return true;
         }
 
         return false;
@@ -139,7 +145,9 @@ public class SoccerDatabase implements SoccerDB {
 
         if( players.containsKey( hashKey )){
             SoccerPlayer sp = players.get(hashKey);
-            sp.bumpGoals();
+            sp.bumpSaves();
+
+            return true;
         }
 
         return false;
@@ -158,7 +166,9 @@ public class SoccerDatabase implements SoccerDB {
 
         if( players.containsKey( hashKey )){
             SoccerPlayer sp = players.get(hashKey);
-            sp.bumpGoals();
+            sp.bumpFouls();
+
+            return true;
         }
 
         return false;
@@ -177,7 +187,9 @@ public class SoccerDatabase implements SoccerDB {
 
         if( players.containsKey( hashKey )){
             SoccerPlayer sp = players.get(hashKey);
-            sp.bumpGoals();
+            sp.bumpYellowCards();
+
+            return true;
         }
 
         return false;
@@ -195,7 +207,9 @@ public class SoccerDatabase implements SoccerDB {
 
         if( players.containsKey( hashKey )){
             SoccerPlayer sp = players.get(hashKey);
-            sp.bumpGoals();
+            sp.bumpRedCards();
+
+            return true;
         }
 
 
