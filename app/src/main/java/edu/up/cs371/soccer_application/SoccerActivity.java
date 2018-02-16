@@ -332,6 +332,7 @@ public class SoccerActivity extends ActionBarActivity {
 
             // attempt to add the player; if unsuccessful, flash and return
             if (!database.addPlayer(first, last, uniformNumber, teamName)) {
+
                 flash();
                 updateAll(true);
                 return;
