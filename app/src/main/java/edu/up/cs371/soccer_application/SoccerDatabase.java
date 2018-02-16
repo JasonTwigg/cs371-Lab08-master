@@ -226,6 +226,18 @@ public class SoccerDatabase implements SoccerDB {
     @Override
     // report number of players on a given team (or all players, if null)
 	public int numPlayers(String teamName) {
+
+        Hashtable<Integer, SoccerPlayer> team = new Hashtable<>();
+        if( teamName == null ){
+            return players.size();
+        }
+
+        int count;
+        Set<String> keys = players.keySet();
+
+        for(String key : keys){
+            if(players.get(key) == )
+        }
         return -1;
 	}
 
