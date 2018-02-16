@@ -232,13 +232,17 @@ public class SoccerDatabase implements SoccerDB {
             return players.size();
         }
 
-        int count;
+        int count = 0;
         Set<String> keys = players.keySet();
 
         for(String key : keys){
-            if(players.get(key) == )
+            SoccerPlayer sp = players.get(key);
+            if( sp.getTeamName().equalsIgnoreCase(teamName)){
+                count++;
+            }
         }
-        return -1;
+
+        return count;
 	}
 
     /**
