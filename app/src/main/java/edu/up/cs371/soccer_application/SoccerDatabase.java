@@ -20,6 +20,8 @@ public class SoccerDatabase implements SoccerDB {
 
     Hashtable<String, SoccerPlayer> players = new Hashtable<>();
 
+
+
     /**
      * add a player
      *
@@ -43,7 +45,7 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean removePlayer(String firstName, String lastName) {
-        String removeHash = firstName + "##" + lastName;
+        String removeHash = firstName + " ## " + lastName;
         if(players.containsKey(removeHash)){
             players.remove(removeHash);
             return true;
@@ -235,8 +237,51 @@ public class SoccerDatabase implements SoccerDB {
 	// get the nTH player
 	@Override
     public SoccerPlayer playerNum(int idx, String teamName) {
+
+        if( teamName == null ){
+            return null;
+        }
+
+        Hashtable<Integer,SoccerPlayer> teams = new Hashtable<>();
+        //Hashtable<Integer,String> teamNames = new Hashtable<>();
+
+        Set<String> keys = players.keySet();
+
+        int pos = 0;
+
+
+
+
+        for( String key : keys ){
+
+            SoccerPlayer sp = players.get(key);
+
+            teams.put(pos, sp);
+            pos++;
+
+        }
+
+        int pos2 = -1;
+
+        for( int i = 0; i < pos; i++ ){
+
+            if(teams.get(i).getTeamName().equalsIgnoreCase(teamName)){
+
+                pos2++;
+
+            }
+
+            if( pos2 == idx ){
+                return teams.get(i);
+            }
+
+        }
+
         return null;
     }
+
+
+
 
     /**
      * reads database data from a file
