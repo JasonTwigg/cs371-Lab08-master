@@ -29,9 +29,11 @@ public class SoccerDatabase implements SoccerDB {
 	public boolean addPlayer(String firstName, String lastName,
 			int uniformNumber, String teamName) {
 
-        players.put(firstName, new SoccerPlayer());
-
-        return false;
+        if( players.containsKey(firstName + " ## " + lastName )) {
+         return false;
+        }
+        players.put(firstName + " ## " + lastName, new SoccerPlayer(firstName,lastName,uniformNumber,teamName));
+        return true;
 	}
 
     /**
